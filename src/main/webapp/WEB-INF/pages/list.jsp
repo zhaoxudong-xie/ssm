@@ -10,7 +10,12 @@
 <html>
   <head>
     <title>展示学员</title>
-    <script src="../../js/jquery-2.1.0.min.js"></script>
+      <script src="../../js/jquery-2.1.0.min.js" type="text/javascript"></script>
+      <script>
+          $(function(){
+              var sid=$("#id").val();
+          })
+      </script>
   </head>
   <body>
   <table border="1" >
@@ -30,9 +35,18 @@
               <td>${user.stuId}</td>
               <td>${user.qq}</td>
               <td>${user.email}</td>
+              <td><a href="/user/find?sid=${user.id}">修改</a> </td>
+              <td><a href="/user/delete?id=${user.id}">删除</a> </td>
           </tr>
       </c:forEach>
       <div style="color:red">欢迎您：${admin}</div>
+      <div>
+          <a href="../../add.jsp">添加学员</a>
+      </div>
+      <div>
+          <input type="text" id="id">
+          <a href="/user/find?sid=1">根据id查找</a>
+      </div>
   </table>
   </body>
 </html>
